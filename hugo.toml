@@ -1,5 +1,5 @@
 baseURL = "https://daggunders.github.io/AG-Hugo-PortalNord/"
-languageCode = "nb-NO"
+locale = "nb-NO"
 title = "Portal Nord"
 theme = "PaperMod"
 paginate = 5
