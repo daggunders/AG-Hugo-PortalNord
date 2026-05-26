@@ -15,38 +15,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS Play CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              teal: '#14b8a6',       /* bright teal */
-              tealHover: '#0d9488',
-              tealLight: '#f0fdfa',
-              green: '#165c3b',      /* dark green CTA */
-              greenHover: '#0d3d25',
-              darkBg: '#050b08',     /* deep dark background */
-              cardDark: '#0d1612',   /* dark card background */
-              cardDarkBorder: '#1c2e26'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            outfit: ['Outfit', 'sans-serif']
-          },
-          boxShadow: {
-            premium: '0 20px 40px -15px rgba(0, 0, 0, 0.05)',
-            premiumHover: '0 30px 60px -15px rgba(0, 0, 0, 0.1)',
-            cardDarkShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.5)'
-          }
-        }
-      }
-    }
-  </script>
-  
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -564,24 +532,5 @@
     </div>
   </footer>
 
-  <!-- MOBILE INTERACTIVE INTERACTION SCRIPT -->
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-
-      // Close mobile menu on clicking any link
-      const links = mobileMenu.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
-      });
-    }
-  </script>
 </body>
 </html>

@@ -1,18 +1,16 @@
 {
   "name": "portalnord",
   "version": "1.0.0",
-  "description": "Hugo website with TinaCMS",
+  "description": "Hugo website",
   "main": "index.js",
   "scripts": {
-    "dev": "tinacms dev -c \"hugo server\"",
-    "build": "tinacms build && hugo --minify"
+    "dev": "hugo server",
+    "build": "hugo --minify"
   },
   "dependencies": {
     "@babel/runtime": "^7.24.0",
     "@icons/material": "^0.2.4",
-    "@tinacms/cli": "^2.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tinacms": "^2.2.0"
+    "react-dom": "^18.2.0"
   }
 }
