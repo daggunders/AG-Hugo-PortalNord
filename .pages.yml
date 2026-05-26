@@ -1,27 +1,12 @@
-media:
-  input: static/images
-  output: /images
-
 content:
-  # Forsiden (Hugo layout/index.html) som en enkeltfil
   - name: homepage
-    label: Forside (layouts/index.html)
+    label: Forside
     type: file
     path: layouts/index.html
-    fields:
-      - name: content
-        label: HTML Kildekode
-        type: code
-
-  # Data-mappen for strukturerte JSON/YAML-filer
-  - name: data
-    label: Data (JSON/YAML-filer)
-    type: collection
-    path: data
     fields:
       - name: title
         label: Tittel
         type: string
-      - name: description
-        label: Beskrivelse
+      - name: hero_text
+        label: Hero-tekst
         type: string
