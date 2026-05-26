@@ -14,6 +14,13 @@ export default defineConfig({
       publicFolder: "static",
     },
   },
+  ui: {
+    previewUrl: ({ branch }) => ({
+      url: branch
+        ? `http://localhost:1313/?tina-preview=${branch}`
+        : "http://localhost:1313",
+    }),
+  },
   schema: {
     collections: [
       {
