@@ -22,3 +22,9 @@ Thumbs.db
 # Antigravity agent files
 .antigravitycli/
 
+# Node.js and TinaCMS files
+node_modules/
+.tina/__generated__
+tina/__generated__
+
+
