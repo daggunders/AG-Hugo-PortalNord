@@ -1,6 +1,6 @@
 baseURL = "https://daggunders.github.io/AG-Hugo-PortalNord/"
 locale = "nb-NO"
-title = "Portal Nord"
+title = "PortalNord"
 theme = "PaperMod"
 paginate = 5
 enableRobotsTXT = true
@@ -14,7 +14,7 @@ buildExpired = false
 
 [params]
   env = "production"
-  title = "Portal Nord"
+  title = "PortalNord"
   description = "En Hugo-nettside med PaperMod-tema"
   keywords = ["portal", "nord", "hugo", "blog"]
   author = "daggunders"
@@ -41,12 +41,12 @@ buildExpired = false
     disableHLJS = true
 
   [params.label]
-    text = "Portal Nord"
+    text = "PortalNord"
     icon = "/favicon.ico"
     iconHeight = 35
 
   [params.homeInfoParams]
-    Title = "Velkommen til Portal Nord 🧭"
+    Title = "Velkommen til PortalNord 🧭"
     Content = "Et Hugo-nettsted drevet av PaperMod-temaet. Utforsk innlegg, kategorier og mer."
 
   [[params.socialIcons]]

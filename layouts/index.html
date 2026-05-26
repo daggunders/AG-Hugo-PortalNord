@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="nb" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortalNord — Bygg et digitalt fundament</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Strategisk webdesign, synlighet og innhold bygget som ett sammenhengende system for målbar digital vekst.">
+  <meta name="keywords" content="PortalNord, webdesign, SEO, digital vekst, utvikling, digitalt fundament, eierskap">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#14b8a6',       /* bright teal */
+              tealHover: '#0d9488',
+              tealLight: '#f0fdfa',
+              green: '#165c3b',      /* dark green CTA */
+              greenHover: '#0d3d25',
+              darkBg: '#050b08',     /* deep dark background */
+              cardDark: '#0d1612',   /* dark card background */
+              cardDarkBorder: '#1c2e26'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif']
+          },
+          boxShadow: {
+            premium: '0 20px 40px -15px rgba(0, 0, 0, 0.05)',
+            premiumHover: '0 30px 60px -15px rgba(0, 0, 0, 0.1)',
+            cardDarkShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-24">
+        
+        <!-- Placeholder / spacing for alignment on large screens -->
+        <div class="hidden lg:block w-36"></div>
+
+        <!-- Logo (Centered) -->
+        <div class="flex flex-col items-center justify-center flex-1 text-center py-2">
+          <a href="#" class="group flex flex-col items-center">
+            <!-- Mountain Line SVG -->
+            <svg class="h-10 w-auto text-slate-800 group-hover:text-brand-teal transition-colors duration-300" viewBox="0 0 100 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 30 L28 12 L38 20 L58 4 L76 22 L81 17 L90 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 30 L38 15 L48 23 L68 6 L81 19" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            </svg>
+            <span class="font-outfit font-extrabold text-xl tracking-[0.2em] text-slate-900 group-hover:text-brand-teal transition-colors duration-300 -mt-1">PortalNord</span>
+          </a>
+        </div>
+
+        <!-- CTA Button (Right Aligned) & Hamburger Menu -->
+        <div class="flex items-center justify-end lg:w-36 gap-4">
+          <a href="#losninger" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 bg-brand-teal hover:bg-brand-tealHover text-white font-outfit text-xs font-bold tracking-wider uppercase rounded transition-all duration-200">
+            SE LØSNINGER
+          </a>
+          <!-- Mobile Menu Button -->
+          <button id="menu-btn" class="lg:hidden text-slate-700 hover:text-brand-teal focus:outline-none p-1" aria-label="Toggle Menu">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Centered Menu Links (Below Logo on Desktop, Hamburger on Mobile) -->
+      <nav id="nav-links" class="hidden lg:flex justify-center border-t border-slate-50 py-3.5">
+        <ul class="flex space-x-10 text-xs font-semibold tracking-wider text-slate-600 font-outfit uppercase">
+          <li><a href="#" class="text-brand-teal hover:text-brand-teal transition-all duration-200 py-1">HJEM</a></li>
+          <li><a href="#metode" class="hover:text-brand-teal transition-all duration-200 py-1">METODE</a></li>
+          <li><a href="#tjenester" class="hover:text-brand-teal transition-all duration-200 py-1">TJENESTER</a></li>
+          <li><a href="#prosjekter" class="hover:text-brand-teal transition-all duration-200 py-1">PROSJEKTER</a></li>
+          <li><a href="#om" class="hover:text-brand-teal transition-all duration-200 py-1">OM</a></li>
+          <li><a href="#kontakt" class="hover:text-brand-teal transition-all duration-200 py-1">KONTAKT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu (Collapsible) -->
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 py-4 pb-6 transition-all duration-300">
+        <ul class="flex flex-col space-y-4 text-sm font-semibold tracking-wide text-slate-700 font-outfit uppercase px-2">
+          <li><a href="#" class="block text-brand-teal">HJEM</a></li>
+          <li><a href="#metode" class="block hover:text-brand-teal">METODE</a></li>
+          <li><a href="#tjenester" class="block hover:text-brand-teal">TJENESTER</a></li>
+          <li><a href="#prosjekter" class="block hover:text-brand-teal">PROSJEKTER</a></li>
+          <li><a href="#om" class="block hover:text-brand-teal">OM</a></li>
+          <li><a href="#kontakt" class="block hover:text-brand-teal">KONTAKT</a></li>
+          <li class="pt-2 border-t border-slate-100">
+            <a href="#losninger" class="w-full inline-flex items-center justify-center px-5 py-3 bg-brand-teal text-white font-outfit text-xs font-bold tracking-wider uppercase rounded">
+              SE LØSNINGER
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-brand-darkBg min-h-[600px] flex items-center justify-center py-24 md:py-32 overflow-hidden bg-cover bg-center" style="background-image: url('/images/portalnord-hero-bg.png');">
+      <!-- Dark Green-tinted Overlay for high contrast -->
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-darkBg/75 via-brand-darkBg/65 to-brand-darkBg/80 z-0"></div>
+      
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+        <!-- Hero Title -->
+        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 font-outfit max-w-4xl mx-auto">
+          Bygg et digitalt fundament som gir synlighet, tillit – og målbar vekst
+        </h1>
+        
+        <!-- Hero Subtitle -->
+        <p class="text-emerald-100/90 text-lg sm:text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+          Strategisk webdesign, synlighet og innhold – bygget som ett sammenhengende system.
+        </p>
+
+        <!-- Bullet separator points -->
+        <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs md:text-sm text-slate-300 font-medium tracking-wide mb-12">
+          <span>20+ års erfaring</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+          <span>Norsk kvalitetsstandard</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+          <span>100 % eierskap</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+          <span>Ingen bindinger</span>
+        </div>
+
+        <!-- Hero Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+          <a href="#vurdering" class="w-full sm:w-auto px-8 py-4 bg-brand-green hover:bg-brand-greenHover text-white font-outfit text-sm font-bold tracking-wider uppercase rounded border border-emerald-500/20 shadow-lg shadow-black/35 hover:-translate-y-0.5 transition-all duration-200">
+            FÅ EN STRATEGISK VURDERING
+          </a>
+        </div>
+        <div class="mt-4">
+          <a href="#tjenester" class="text-xs text-slate-400 hover:text-white transition-all font-semibold tracking-wide inline-flex items-center gap-1 group">
+            Se startpakker <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOATING FEATURE CARDS -->
+    <section class="relative z-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto -mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          
+          <!-- Card 1 -->
+          <div class="bg-white rounded-xl p-8 border border-slate-100 shadow-premium hover:shadow-premiumHover transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-6 text-slate-700">
+              <!-- Grid/Flag Icon representing Norsk Kvalitet -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+            <h3 class="text-slate-900 font-extrabold text-lg mb-3 tracking-tight font-outfit">Norsk Kvalitets-standard</h3>
+            <p class="text-slate-500 text-sm leading-relaxed font-light">
+              Din garanti for profesjonelt digitalt håndverk, utviklet og sikret etter norske lover og kvalitetskrav. Vi leverer trygghet gjennom faglig fokus.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white rounded-xl p-8 border border-slate-100 shadow-premium hover:shadow-premiumHover transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-6 text-slate-700">
+              <!-- Key/Lock Icon representing Fullt Eierskap -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <h3 class="text-slate-900 font-extrabold text-lg mb-3 tracking-tight font-outfit">Fullt Eierskap</h3>
+            <p class="text-slate-500 text-sm leading-relaxed font-light">
+              Ingen bindingstid eller skjulte abonnementsfeller. Hos oss eier du din egen kildekode og din digitale eiendom fra dag én.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white rounded-xl p-8 border border-slate-100 shadow-premium hover:shadow-premiumHover transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-6 text-slate-700">
+              <!-- Rocket Icon representing Rask Mestring -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-slate-900 font-extrabold text-lg mb-3 tracking-tight font-outfit">Rask Mestring</h3>
+            <p class="text-slate-500 text-sm leading-relaxed font-light">
+              Slutt å kaste bort tid på tekniske kurs. Vi leverer løsninger så intuitive at du mestrer din egen digitale hverdag på under fem minutter.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION WITH TIMELINE -->
+    <section id="metode" class="py-24 bg-white overflow-hidden mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Left Column Content -->
+          <div class="lg:col-span-5 space-y-6">
+            <!-- Teal pill bar -->
+            <div class="w-14 h-2 bg-brand-teal rounded-full"></div>
+            
+            <h2 class="text-slate-900 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] font-outfit">
+              Presisjon i et digitalt landskap fullt av støy.
+            </h2>
+            
+            <div class="space-y-5 text-slate-600 text-base sm:text-lg leading-relaxed font-light">
+              <p class="font-semibold text-slate-900">
+                Vi bygger digitale fundamenter som gjør at riktig publikum finner deg — uten at du må jage trafikk.
+              </p>
+              <p>
+                En ny nettside er ofte starten. Men sjelden løsningen alene.
+              </p>
+              <p>
+                Mange bedrifter investerer i ny nettside — men opplever at resultatet ikke gir retning. Synlighet blir et eget prosjekt. Drift blir en fast kostnad. Nye verktøy lover mye, men skaper mer kompleksitet.
+              </p>
+              <p>
+                Vi bygger nettsider og synlighet slik det burde vært gjort fra starten av — samlet i én struktur. Med tydelig eierskap, norsk kvalitetsstandard og en plan som gir deg kontroll, ikke avhengighet.
+              </p>
+              <p>
+                Der andre leverer enkelttjenester, bygger vi helhet.
+              </p>
+            </div>
+
+            <div class="pt-4">
+              <a href="#metode" class="inline-flex items-center justify-center px-6 py-3 border-2 border-slate-900 text-slate-900 font-outfit text-sm font-bold tracking-wider uppercase rounded-full hover:bg-slate-900 hover:text-white transition-all duration-300">
+                SE VÅR METODE &nbsp;→
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column Timeline Step list -->
+          <div class="lg:col-span-7 space-y-10 lg:pl-8">
+            
+            <!-- Step 1 -->
+            <div class="flex gap-6 group">
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full border-2 border-brand-teal text-brand-teal flex items-center justify-center font-outfit font-bold text-sm shrink-0 bg-brand-teal/5">
+                  01
+                </div>
+                <div class="w-[2px] grow bg-slate-100 my-2"></div>
+              </div>
+              <div class="pb-6">
+                <h4 class="text-slate-900 font-extrabold text-xl mb-2 tracking-tight font-outfit">Strategisk Struktur</h4>
+                <p class="font-medium text-slate-800 text-sm mb-1">Vi skaper retning før vi bygger.</p>
+                <p class="text-slate-500 text-sm leading-relaxed font-light">
+                  Før vi designer eller utvikler, analyserer vi hvor du står i dag – og hvor du skal. Vi fjerner støy og legger en tydelig digital plan.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex gap-6 group">
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full border-2 border-brand-teal text-brand-teal flex items-center justify-center font-outfit font-bold text-sm shrink-0 bg-brand-teal/5">
+                  02
+                </div>
+                <div class="w-[2px] grow bg-slate-100 my-2"></div>
+              </div>
+              <div class="pb-6">
+                <h4 class="text-slate-900 font-extrabold text-xl mb-2 tracking-tight font-outfit">Teknisk Kontroll</h4>
+                <p class="font-medium text-slate-800 text-sm mb-1">Du eier løsningen. Vi sikrer fundamentet.</p>
+                <p class="text-slate-500 text-sm leading-relaxed font-light">
+                  Når retningen er satt, bygger vi løsningen riktig fra bunnen av. Ingen skjulte bindinger. Ingen låste systemer. Full kontroll.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex gap-6 group">
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full border-2 border-brand-teal text-brand-teal flex items-center justify-center font-outfit font-bold text-sm shrink-0 bg-brand-teal/5">
+                  03
+                </div>
+                <div class="w-[2px] grow bg-slate-100 my-2"></div>
+              </div>
+              <div class="pb-6">
+                <h4 class="text-slate-900 font-extrabold text-xl mb-2 tracking-tight font-outfit">Verifisert Autoritet</h4>
+                <p class="font-medium text-slate-800 text-sm mb-1">Synlighet som bygger tillit – ikke bare trafikk.</p>
+                <p class="text-slate-500 text-sm leading-relaxed font-light">
+                  Når fundamentet er på plass, optimaliserer vi synlighet og innhold slik at du fremstår som den naturlige aktøren i ditt marked.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step Check -->
+            <div class="flex gap-6 group">
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-brand-teal/10 border-2 border-brand-teal text-brand-teal flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <span class="text-[10px] tracking-widest text-emerald-600 font-outfit font-bold uppercase block mb-1">KLAR FOR NESTE STEG?</span>
+                <h4 class="text-slate-900 font-extrabold text-2xl mb-2 tracking-tight font-outfit">La oss starte riktig:</h4>
+                <p class="text-slate-600 text-sm leading-relaxed font-light mb-4 max-w-md">
+                  En strategisk samtale hvor vi kartlegger hvor du står i dag – og hvor du vil. Derfra får du en tydelig anbefaling og en konkret vei videre.
+                </p>
+                <a href="#kontakt" class="font-outfit font-bold text-sm text-brand-teal hover:text-brand-tealHover border-b-2 border-brand-teal hover:border-brand-tealHover transition-all pb-0.5 tracking-wide">
+                  Bestill en strategisk samtale
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DARK SCENIC SECTION (MOUNTAIN SVG TOP DIVIDER + BLACK BACKGROUND) -->
+    <section id="tjenester" class="relative bg-brand-darkBg text-white pt-24 pb-32">
+      
+      <!-- Mountain SVG Edge Shape Divider (Flawless peak graphics) -->
+      <div class="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform -translate-y-full z-10 bg-transparent">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px] md:h-[90px] fill-brand-darkBg text-brand-darkBg">
+          <path d="M0,80 L80,105 L210,50 L380,95 L490,40 L650,85 L790,20 L940,90 L1080,45 L1200,75 L1200,120 L0,120 Z"/>
+          <path d="M0,95 L140,80 L290,110 L440,75 L590,95 L720,60 L890,100 L1040,70 L1200,98 L1200,120 L0,120 Z" opacity="0.3"/>
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <p class="text-xs font-semibold tracking-widest text-emerald-400 font-outfit uppercase">Når retningen er satt, begynner arbeidet.</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-outfit">
+            Slik bygger vi målbar <span class="text-brand-teal">digital vekst</span>
+          </h2>
+        </div>
+
+        <!-- 3 Dark Service Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          
+          <!-- Card 1 -->
+          <div class="bg-brand-cardDark/80 border border-brand-cardDarkBorder rounded-xl p-8 shadow-cardDarkShadow hover:border-emerald-500/20 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center text-brand-teal">
+                  <!-- Shield Check Icon -->
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <span class="text-[9px] font-outfit font-bold tracking-widest text-emerald-400 border border-emerald-500/30 bg-emerald-500/5 px-2 py-0.5 rounded uppercase">PLATTFORM</span>
+              </div>
+              <div class="space-y-3">
+                <h3 class="font-extrabold text-xl tracking-tight font-outfit">Digitalt Fundament</h3>
+                <p class="text-slate-400 text-sm leading-relaxed font-light">
+                  Vi bygger nettsider og digitale plattformer som fungerer som et stabilt fundament for vekst. Med fokus på struktur, eierskap og brukervennlighet legger vi grunnlaget for synlighet og konvertering over tid.
+                </p>
+              </div>
+            </div>
+            <div class="pt-6">
+              <a href="#plattform" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1 font-medium group">
+                Klikk for mer informasjon <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-brand-cardDark/80 border border-brand-cardDarkBorder rounded-xl p-8 shadow-cardDarkShadow hover:border-emerald-500/20 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center text-brand-teal">
+                  <!-- Search Icon -->
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                </div>
+                <span class="text-[9px] font-outfit font-bold tracking-widest text-emerald-400 border border-emerald-500/30 bg-emerald-500/5 px-2 py-0.5 rounded uppercase">SØK OG SYNLIGHET</span>
+              </div>
+              <div class="space-y-3">
+                <h3 class="font-extrabold text-xl tracking-tight font-outfit">Synlighet der det gjelder</h3>
+                <p class="text-slate-400 text-sm leading-relaxed font-light">
+                  Vi sørger for at virksomheten din blir funnet der kundene faktisk leter. Gjennom strukturert SEO, teknisk optimalisering og riktig innhold øker vi synligheten din i søk og i markedet.
+                </p>
+              </div>
+            </div>
+            <div class="pt-6">
+              <a href="#sok" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1 font-medium group">
+                Klikk for mer informasjon <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-brand-cardDark/80 border border-brand-cardDarkBorder rounded-xl p-8 shadow-cardDarkShadow hover:border-emerald-500/20 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center text-brand-teal">
+                  <!-- Message Bubble Icon -->
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                  </svg>
+                </div>
+                <span class="text-[9px] font-outfit font-bold tracking-widest text-emerald-400 border border-emerald-500/30 bg-emerald-500/5 px-2 py-0.5 rounded uppercase">KOMMUNIKASJON</span>
+              </div>
+              <div class="space-y-3">
+                <h3 class="font-extrabold text-xl tracking-tight font-outfit">Historier som selger</h3>
+                <p class="text-slate-400 text-sm leading-relaxed font-light">
+                  Synlighet alene er ikke nok. Vi hjelper deg å formulere budskapet ditt slik at mennesker forstår hva du tilbyr og hvorfor det betyr noe. God kommunikasjon bygger tillit – og tillit skaper kunder.
+                </p>
+              </div>
+            </div>
+            <div class="pt-6">
+              <a href="#kommunikasjon" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1 font-medium group">
+                Klikk for mer informasjon <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Two Column Bottom Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          <!-- Left Dark Green Callout Box -->
+          <div class="lg:col-span-4 bg-emerald-950/70 border border-emerald-800/20 rounded-2xl p-8 flex flex-col justify-between shadow-premium">
+            <div class="space-y-4">
+              <span class="text-[10px] tracking-widest text-emerald-400 font-outfit font-bold uppercase">Tilpasset</span>
+              <h3 class="text-brand-teal text-3xl font-extrabold tracking-tight font-outfit leading-tight">
+                Din situasjon
+              </h3>
+              <p class="text-slate-300 text-sm font-light leading-relaxed">
+                Ingen bedrifter er like, og det er heller ikke våre løsninger. Vi setter sammen nøyaktig de verktøyene du trenger for å nå dine mål, enten det er en enkel nettside eller en komplett digital rigg.
+              </p>
+            </div>
+            <div class="mt-8">
+              <a href="#vurdering" class="w-full inline-flex items-center justify-center px-6 py-3.5 bg-white text-slate-900 font-outfit text-xs font-bold tracking-wider uppercase rounded shadow hover:bg-slate-100 transition-all text-center">
+                Få en strategisk vurdering
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Pillars Block -->
+          <div class="lg:col-span-8 bg-brand-cardDark/40 border border-brand-cardDarkBorder rounded-2xl p-8 lg:p-10 flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              
+              <!-- Text Block -->
+              <div class="md:col-span-7 space-y-5">
+                <span class="text-[10px] tracking-widest text-slate-400 font-outfit font-bold uppercase block">FRA VISJON TIL VERIFISERT AUTORITET.</span>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">
+                  Vi bygger ikke bare nettsider; vi konstruerer digitale økosystemer rigget for vekst. Ved å kombinere 20 års erfaring med moderne AI-analyse, sikrer vi at ditt fundament står støtt i et landskap preget av støy.
+                </p>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">
+                  Vår metodikk forener teknisk integritet med strategisk innhold som konverterer. Som din arkitekt kvalitetssikrer vi hver kodelinje, slik at du får full kontroll, 100% eierskap og en rigg bygget for å skalere lønnsomt.
+                </p>
+              </div>
+
+              <!-- Pill Pillars List -->
+              <div class="md:col-span-5 space-y-4 pt-2">
+                
+                <!-- Pillar 1 -->
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-brand-teal shrink-0">
+                    <!-- Layer Icon -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2M5 11V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs text-slate-200 font-medium font-outfit">Behovsanalyse og strategisk fundament.</span>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-brand-teal shrink-0">
+                    <!-- Target Icon -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs text-slate-200 font-medium font-outfit">Presisjonsbygging av løsningen.</span>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-brand-teal shrink-0">
+                    <!-- Graph Icon -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                  <span class="text-xs text-slate-200 font-medium font-outfit">Skalering og kontinuerlig optimalisering.</span>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="kontakt" class="bg-black text-white py-14 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      
+      <!-- Footer Nav Links -->
+      <nav class="w-full">
+        <ul class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold tracking-widest font-outfit uppercase">
+          <li><a href="#" class="text-brand-teal border-b border-brand-teal pb-1">Hjem</a></li>
+          <li><a href="#metode" class="text-slate-400 hover:text-white transition-colors pb-1">Metode</a></li>
+          <li><a href="#tjenester" class="text-slate-400 hover:text-white transition-colors pb-1">Tjenester</a></li>
+          <li><a href="#prosjekter" class="text-slate-400 hover:text-white transition-colors pb-1">Prosjekter</a></li>
+          <li><a href="#om" class="text-slate-400 hover:text-white transition-colors pb-1">Om</a></li>
+          <li><a href="#kontakt" class="text-slate-400 hover:text-white transition-colors pb-1">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <!-- Copyright Info -->
+      <div class="mt-8 text-slate-600 text-[10px] tracking-wider text-center uppercase">
+        &copy; 2026 PortalNord. Alle rettigheter reservert. Udviklet for maksimal digital vekst.
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- MOBILE INTERACTIVE INTERACTION SCRIPT -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu on clicking any link
+      const links = mobileMenu.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
